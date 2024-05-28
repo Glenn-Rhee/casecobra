@@ -1,10 +1,15 @@
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { ArrowRight } from "lucide-react";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default function Links() {
-  const user = undefined;
-  const isAdmin = undefined;
+export default async function Links() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+  const isAdmin = user?.email === process.env.ADMIN_EMAIL;
+
+  console.log(process.env.ADMIN_EMAIL);
+  console.log(user);
 
   return (
     <>
@@ -21,7 +26,7 @@ export default function Links() {
           </Link>
           {isAdmin ? (
             <Link
-              href={"/api/auth/logout"}
+              href={"/dashboard"}
               className={buttonVariants({
                 size: "sm",
                 variant: "ghost",
