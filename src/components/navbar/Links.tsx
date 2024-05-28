@@ -8,9 +8,6 @@ export default async function Links() {
   const user = await getUser();
   const isAdmin = user?.email === process.env.ADMIN_EMAIL;
 
-  console.log(process.env.ADMIN_EMAIL);
-  console.log(user);
-
   return (
     <>
       {user ? (
