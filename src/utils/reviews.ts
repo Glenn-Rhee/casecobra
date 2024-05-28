@@ -28,11 +28,11 @@ export const reviews: Reviews[] = [
 
 export const PHONES = [
   "/testi/1.jpg",
-  "/testi/2.jpg",
-  "/testi/3.jpg",
-  "/testi/4.jpg",
   "/testi/5.jpg",
+  "/testi/3.jpg",
   "/testi/6.jpg",
+  "/testi/4.jpg",
+  "/testi/2.jpg",
 ];
 
 export function splitArray<T>(array: Array<T>, numParts: number) {
